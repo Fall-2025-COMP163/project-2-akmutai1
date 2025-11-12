@@ -77,9 +77,9 @@ class Character:
         # TODO: Implement basic attack
         # Damage should be based on self.strength
         # Use target.take_damage(damage) to apply damage
-    
-            
-        pass
+        damage = self.strength  # basic damage is equal to strength
+        target.take_damage(damage)
+        print(f"{self.name} attacks {target.name} for {damage} damage!")
         
     def take_damage(self, damage):
         """
@@ -89,8 +89,9 @@ class Character:
         # TODO: Implement taking damage
         # Reduce self.health by damage amount
         # Make sure health doesn't go below 0
-        pass
-        
+        self.health -= damage
+        if self.health < 0:
+            self.health = 0
     def display_stats(self):
         """
         Prints the character's current stats in a nice format.

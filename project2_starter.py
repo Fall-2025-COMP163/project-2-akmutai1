@@ -98,7 +98,11 @@ class Character:
         """
         # TODO: Print character's name, health, strength, and magic
         # Make it look nice with formatting
-        pass
+        print("=== Character Stats ===\n")
+        print(f"Name: {self.name}\n")
+        print(f"Health: {self.health}\n")
+        print(f"Strength: {self.strength}\n")
+        print(f"Magic: {self.magic}\n")
 
 class Player(Character):
     """

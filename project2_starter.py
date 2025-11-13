@@ -6,7 +6,7 @@ Date: [Date]
 AI Usage: [Document any AI assistance used]
 Example: AI helped with inheritance structure and method overriding concepts
 """
-
+import random
 # ============================================================================
 # PROVIDED BATTLE SYSTEM (DO NOT MODIFY)
 # ============================================================================
@@ -159,9 +159,8 @@ class Warrior(Player):
         # TODO: Implement warrior attack
         # Should do more damage than basic attack
         # Maybe strength + 5 bonus damage?
-        super().attack(target)
-        bonus_damage = 5
-        target.take_damage(bonus_damage)
+        damage = self.strength
+        target.take_damage(damage)
         
     def power_strike(self, target):
         """
@@ -169,7 +168,8 @@ class Warrior(Player):
         """
         # TODO: Implement power strike
         # Should do significantly more damage than regular attack
-        pass
+        damage = self.strength + 10
+        target.take_damage(damage)
 
 class Mage(Player):
     """
@@ -184,7 +184,7 @@ class Mage(Player):
         """
         # TODO: Call super().__init__() with mage-appropriate stats
         # Suggested stats: health=80, strength=8, magic=20
-        pass
+        super().__init__(name, "Mage", 80, 8, 20)
         
     def attack(self, target):
         """
@@ -193,7 +193,8 @@ class Mage(Player):
         """
         # TODO: Implement mage attack
         # Should use self.magic for damage calculation instead of strength
-        pass
+        damage = self.magic
+        target.take_damage(damage)
         
     def fireball(self, target):
         """
@@ -201,7 +202,8 @@ class Mage(Player):
         """
         # TODO: Implement fireball spell
         # Should do magic-based damage with bonus
-        pass
+        damage = self.magic + 10
+        target.take_damage(damage)
 
 class Rogue(Player):
     """
@@ -216,7 +218,7 @@ class Rogue(Player):
         """
         # TODO: Call super().__init__() with rogue-appropriate stats
         # Suggested stats: health=90, strength=12, magic=10
-        pass
+        super().__init__(name, "Rogue", 90, 12, 10)
         
     def attack(self, target):
         """
@@ -226,15 +228,20 @@ class Rogue(Player):
         # TODO: Implement rogue attack
         # Could add a chance for critical hit (double damage)
         # Hint: use random.randint(1, 10) and if result <= 3, it's a crit
-        pass
+        chance = random.randint(1,10)
+        if chance <= 3:
+            damage = self.strength * 2
+        else:
+            damage = self.strength
+        target.take_damage(damage)
         
     def sneak_attack(self, target):
         """
         Special rogue ability - guaranteed critical hit.
         """
-        # TODO: Implement sneak attack
-        # Should always do critical damage
-        pass
+        damage = self.strength * 2
+        target.take_damage(damage)
+        
 
 class Weapon:
     """

@@ -171,6 +171,7 @@ class Warrior(Player):
         damage = self.strength + 10
         target.take_damage(damage)
 
+
 class Mage(Player):
     """
     Mage class - magical spellcaster.

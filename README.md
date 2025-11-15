@@ -145,3 +145,7 @@ Feel free to add your own creative touches for bonus points:
 - Additional character classes beyond the three required
 - More weapon types with different properties
 - Enhanced special abilities with unique effects
+- 
+## Documentation
+- This project is a simple Python RPG combat system built using object-oriented programming. It includes a base Character class and three player classes; Warrior, Mage, and Rogue, each with unique stats, attacks, and special abilities. A Weapon class demonstrates composition by allowing characters to equip items with bonus damage. The project showcases inheritance, method overriding, and basic combat logic.
+Promted AI to explain the need of super() in overriding a method instead of simply re-stating the method. Promt: The two ways of overriding a method is by re-stating the method and using super() why would I need to use super over the simpler way? 

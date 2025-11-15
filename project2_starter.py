@@ -7,7 +7,7 @@ Date: 11/14/25
 AI Usage: [Document any AI assistance used]
 Example: AI helped with inheritance structure and method overriding concepts
 """
-import random
+import random # for critical hit chance in rogue class
 
 # ============================================================================
 # PROVIDED BATTLE SYSTEM (DO NOT MODIFY)
@@ -61,7 +61,7 @@ class Character:
     This is the top of our inheritance hierarchy.
     """
     
-    def __init__(self, name, health, strength, magic):
+    def __init__(self, name, health, strength, magic): # simple stat characteristics
         """Initialize basic character attributes"""
         self.name = name
         self.health = health
@@ -93,13 +93,14 @@ class Character:
         # Make sure health doesn't go below 0
         self.health -= damage
         if self.health < 0:
-            self.health = 0
+            self.health = 0  
     def display_stats(self):
         """
         Prints the character's current stats in a nice format.
         """
         # TODO: Print character's name, health, strength, and magic
         # Make it look nice with formatting
+        # simple print statements 
         print("=== Character Stats ===\n")
         print(f"Name: {self.name}\n")
         print(f"Health: {self.health}\n")
@@ -233,7 +234,7 @@ class Rogue(Player):
         # Hint: use random.randint(1, 10) and if result <= 3, it's a crit
         chance = random.randint(1,10)
         if chance <= 3:
-            damage = self.strength * 2
+            damage = self.strength * 2  #if else statement for critical hit
         else:
             damage = self.strength
         target.take_damage(damage)
